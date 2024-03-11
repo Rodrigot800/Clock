@@ -1,38 +1,120 @@
-.App {
-  text-align: center;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  scrollbar-width: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --cor-1: #240046;
+  --cor1: #03045e;
+  --cor2: #023e8a;
+  --cor3: #0077b6;
+  --cor4: #00b4d8;
+  --cor5: #90e0ef;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#menu {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100%;
+}
+#logo {
+  width: 50px;
+  height: auto;
+}
+.teste {
+  text-align: center;
+  justify-content: center;
+  width: 100px;
+  height: 100%;
+  color: aliceblue;
+  border-radius: 5px;
+  background-color: transparent;
+  border: none;
+  padding: 2px;
+}
+.teste:hover {
+  background-color: #240046;
+  transition: 0.5s;
+  border: solid 1px white;
+}
+
+#head {
+  background-color: #111111;
+  width: 100%;
+  height: 60px;
+}
+.img-menu {
+  width: 20px;
+  height: auto;
+}
+.alinhamento-menu {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+#cro {
+  padding-top: 30vh;
+  height: 95vh;
+  text-align: center;
+  margin: auto;
+  background-color: #111625;
+  color: azure;
+}
+#time {
+  font-size: 5em;
+  padding-bottom: 20px;
+}
+#stop-btn {
+  border: unset;
+  width: 100px;
+  height: 50px;
+  display: none;
+  margin: auto;
+  border-radius: 30px;
+  background-color: #ca1444;
+  font-size: larger;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+#start-btn {
+  border: none;
+  width: 100px;
+  height: 50px;
+  margin: auto;
+  border-radius: 30px;
+  background-color: #00b34c;
+  font-size: larger;
+  color: white;
+}
+#reset-btn {
+  display: none;
+  margin: 20px;
+  border: none;
+  width: 100px;
+  height: 50px;
+  margin: auto;
+  border-radius: 30px;
+  background-color: #b30000;
+  font-size: larger;
+  color: white;
+}
+.alinhamento {
+  margin: auto;
+  width: 30%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  column-gap: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 700px){
+  .alinhamento {
+    margin: auto;
+    width: 55%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    column-gap: 10px;
   }
-  to {
-    transform: rotate(360deg);
   }
-}
