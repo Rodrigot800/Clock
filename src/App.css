@@ -36,8 +36,7 @@
 }
 .teste:hover {
   background-color: #240046;
-  transition: 0.5s;
-  border: solid 1px white;
+  transition: 0.30s;
 }
 
 #head {
@@ -55,6 +54,7 @@
   justify-content: center;
 }
 #cro {
+  
   padding-top: 30vh;
   height: 95vh;
   text-align: center;
