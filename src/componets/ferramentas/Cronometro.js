@@ -33,15 +33,24 @@ function Body() {
     document.getElementById("time").innerText = `${dupliDigit(
       hora
     )}:${dupliDigit(min)}:${dupliDigit(seg)}`;
+
+    console.log(seg);
+    console.log(min);
+    console.log(hora);
+    if(seg != 0){
+      document.getElementById("start-btn").style.display = "none";
+      document.getElementById("stop-btn").style.display = "block";
+      document.getElementById("reset-btn").style.display = "block";
+    }
   }
 
   function stop() {
     clearInterval(interval);
     document.getElementById("start-btn").style.display = "block";
-    document.getElementById("reset-btn").style.display = "none"
+    document.getElementById("reset-btn").style.display = "none";
   }
   function reset() {
-    stop()
+    stop();
     document.getElementById("time").innerText = "00:00:00";
     seg = 0;
     min = 0;
