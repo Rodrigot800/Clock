@@ -61,6 +61,7 @@
   margin: auto;
   background-color: #111625;
   color: azure;
+  display: block;
 }
 #time {
   font-size: 5em;
@@ -70,7 +71,7 @@
   border: unset;
   width: 100px;
   height: 50px;
-  display: none;
+  display: block;
   margin: auto;
   border-radius: 30px;
   background-color: #ca1444;
@@ -88,7 +89,7 @@
   color: white;
 }
 #reset-btn {
-  display: none;
+  display: block;
   margin: 20px;
   border: none;
   width: 100px;
