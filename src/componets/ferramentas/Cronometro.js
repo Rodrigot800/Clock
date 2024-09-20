@@ -23,7 +23,7 @@ function Body() {
     if (running) {
       interval = setInterval(() => {
         setTime((prevTime) => prevTime + 1);
-      }, 1);
+      }, 1000);
     } else if (!running && time !== 0) {
       clearInterval(interval);
     }
