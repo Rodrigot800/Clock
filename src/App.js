@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
-import Appcss from "./App.css";
+import React, { useState } from "react";
+import AppCss from "./App.css"
 import Cronometro from "./componets/ferramentas/Cronometro";
 import Alarme from "./componets/ferramentas/alarme";
+import Timer from "./componets/ferramentas/timer";
 
 // Componente Cronômetro
 /*function Cronometro() {
@@ -34,46 +35,15 @@ import Alarme from "./componets/ferramentas/alarme";
 
 
 // Componente Temporizador
-function Temporizador() {
-  const [tempo, setTempo] = useState(60); // Definindo 60 segundos de exemplo
-  const [ativo, setAtivo] = useState(false);
 
-  useEffect(() => {
-    let timer;
-    if (ativo && tempo > 0) {
-      timer = setInterval(() => {
-        setTempo((prevTempo) => prevTempo - 1);
-      }, 1000);
-    } else if (tempo === 0) {
-      setAtivo(false);
-      alert("Temporizador terminou!");
-    }
-    return () => clearInterval(timer);
-  }, [ativo, tempo]);
-
-  return (
-    <div>
-      <h2>Temporizador: {tempo}s</h2>
-      <input
-        type="number"
-        value={tempo}
-        onChange={(e) => setTempo(Number(e.target.value))}
-      />
-      <button onClick={() => setAtivo(true)}>Iniciar</button>
-      <button onClick={() => setAtivo(false)}>Pausar</button>
-      <button onClick={() => setTempo(60)}>Resetar</button>
-    </div>
-  );
-}
 
 // Componente principal para gerenciar os três
 function App() {
-  const [componenteAtivo, setComponenteAtivo] = useState("cronometro");
-
+  const [componenteAtivo, setComponenteAtivo] = useState("timer");
   const mostrarComponente = () => {
     if (componenteAtivo === "cronometro") return <Cronometro />;
     if (componenteAtivo === "alarme") return <Alarme />;
-    if (componenteAtivo === "temporizador") return <Temporizador />;
+    if (componenteAtivo === "timer") return <Timer />;
   };
 
   return (
@@ -89,14 +59,14 @@ function App() {
             <p id="Cronometro">Cronometro</p>
           </button>
 
-          <button  id="Alarme" className="teste" onClick={() => setComponenteAtivo("temporizador")}>
+          <button  id="Alarme" className="teste" onClick={() => setComponenteAtivo("alarme")}>
             <img id="Alarme"
               className="img-menu"
               src="https://toppng.com/uploads/preview/browser-history-clock-icon-vector-white-115629140725m3lqcdics.png"
             />
             <p id="Alarme" >Alarme</p>
           </button>
-          <button id="Temporizador" className="teste" onClick={() => setComponenteAtivo("alarme")}>
+          <button id="Temporizador" className="teste" onClick={() => setComponenteAtivo("timer")}>
             <img id="Temporizador"
               className="img-menu"
               src="https://toppng.com/uploads/preview/browser-history-clock-icon-vector-white-115629140725m3lqcdics.png"

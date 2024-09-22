@@ -1,10 +1,25 @@
 import React, { useState, useEffect } from "react";
-import css from "./../../App.css";
 
 function Body() {
+  // uma variavel time e uma função setTime para atualizar time
   const [time, setTime] = useState(0);
+  // um useState para mostrar o estado da contagem, iniciando como false, 
   const [running, setRunning] = useState(false);
 
+  useEffect(() => {
+    let interval;
+    // quanto Running for igual a True, irá iniciar a contagem
+    if (running) {
+      interval = setInterval(() => {
+        setTime((prevTime) => prevTime + 1);
+      }, 1000);
+    // quanto Running for igual a false, irá parar a contagem
+    } else if (!running && time !== 0) {
+      clearInterval(interval);
+    }
+    // esse retorno será executado quando o componente for executado ou as depedencias mudarem. chamamos 0,
+    return () => clearInterval(interval);
+  }, [running, time]);
 
   function formatTime(seg) {
     var segundos = Math.floor(seg % 60);
@@ -18,17 +33,7 @@ function Body() {
     )}`;
   }
 
-  useEffect(() => {
-    let interval;
-    if (running) {
-      interval = setInterval(() => {
-        setTime((prevTime) => prevTime + 1);
-      }, 1000);
-    } else if (!running && time !== 0) {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
-  }, [running, time]);
+ 
 
   // algoritmo de botões
   const [state, setState] = useState('iniciar'); // 'iniciar', 'continuar', 'pausar'
@@ -74,16 +79,6 @@ function Body() {
             <button id="reset-btn" onClick={resetar}>Resetar</button>
           </>
         )}
-
-        {/* <button id="start-btn" onClick={() => setRunning(true)}>
-          Iniciar
-        </button>
-        <button id="stop-btn" onClick={() => setRunning(false)}>
-          Pausar
-        </button>
-        <button id="reset-btn" onClick={() => setTime(0)}>
-          Resetar
-        </button>} */}
       </div>
     </div>
   );
@@ -91,48 +86,3 @@ function Body() {
 
 export default Body;
 
-// import React, { useState } from 'react';
-
-// const App = () => {
-//   const [state, setState] = useState('iniciar'); // 'iniciar', 'continuar', 'pausar'
-
-//   const iniciar = () => {
-//     setState('continuar');
-//   };
-
-//   const pausar = () => {
-//     setState('continuar');
-//   };
-
-//   const continuar = () => {
-//     setState('pausar');
-//   };
-
-//   const resetar = () => {
-//     setState('iniciar');
-//   };
-
-//   return (
-//     <div>
-//       {state === 'iniciar' && (
-//         <button onClick={iniciar}>Iniciar</button>
-//       )}
-
-//       {state === 'continuar' && (
-//         <>
-//           <button onClick={continuar}>Continuar</button>
-//           <button onClick={pausar}>Pausar</button>
-//         </>
-//       )}
-
-//       {state === 'pausar' && (
-//         <>
-//           <button onClick={continuar}>Continuar</button>
-//           <button onClick={resetar}>Resetar</button>
-//         </>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default App;
