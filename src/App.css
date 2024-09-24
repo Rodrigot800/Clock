@@ -68,6 +68,10 @@
   font-size: 5em;
   padding-bottom: 20px;
 }
+.inputTimerDiv{
+  padding-bottom: 20px;
+  
+}
 #stop-btn {
   border: unset;
   width: 100px;
@@ -86,6 +90,16 @@
   margin: auto;
   border-radius: 30px;
   background-color: #00b34c;
+  font-size: larger;
+  color: white;
+}
+#start-btn-cinza{
+  border: none;
+  width: 100px;
+  height: 50px;
+  margin: auto;
+  border-radius: 30px;
+  background-color: #838383e7;
   font-size: larger;
   color: white;
 }
@@ -110,8 +124,13 @@
   column-gap: 10px;
 }
 .InputNumbertimer{
-  width: 2em;
-  font-size: 2em;
+  text-align: right;
+  width: 1.7em;
+  height: 1em;
+  font-size: 5em;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 @media screen and (max-width: 700px){

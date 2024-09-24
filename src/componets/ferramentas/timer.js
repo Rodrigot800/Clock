@@ -9,13 +9,21 @@ function Timer() {
 
   const iniciarTempo = () => {
     var somaSeg = segInput + minInput * 60 + horaInput * 3600;
-    if (somaSeg == 0) {
-      alert("Valor inválido");
+    if (somaSeg == 0 || segInput > 59 || minInput > 59 || horaInput > 72) {
       return false;
     } else {
       setTempo(somaSeg);
       setAtivo(true);
     }
+  };
+  const Alertar = () => {
+    setTempo(0);
+    setAtivo(false);
+    setTimeout(() => {
+      alert("Tempo acabou!!!");
+    }, 1);
+
+    setEstadoBotao("");
   };
 
   useEffect(() => {
@@ -25,8 +33,7 @@ function Timer() {
         setTempo((prevTempo) => prevTempo - 1);
       }, 1000);
     } else if (tempo === 0 && ativo) {
-      setAtivo(false);
-      alert("Temporizador terminou!");
+      Alertar();
     }
     return () => clearInterval(timer);
   }, [ativo, tempo]);
@@ -43,7 +50,7 @@ function Timer() {
     )}`;
   };
   const [estadoTela, SetEstadoTela] = useState("Digitar");
-  const [estadoBotao, setEstadoBotao] = useState("ativo");
+  const [estadoBotao, setEstadoBotao] = useState("valorInvalido");
 
   const Inicio = () => {
     if (iniciarTempo() == false) {
@@ -51,6 +58,7 @@ function Timer() {
     } else {
       iniciarTempo();
       SetEstadoTela("ativo");
+      setEstadoBotao("ativo");
     }
   };
   const Resetar = () => {
@@ -60,6 +68,9 @@ function Timer() {
     };
     zerarTempo();
     SetEstadoTela("Digitar");
+    SetsegInput(0);
+    SetMinInput(0);
+    SetHoraInput(0);
   };
   const Pausar = () => {
     setAtivo(false);
@@ -74,41 +85,48 @@ function Timer() {
     <div id="cro">
       {estadoTela === "Digitar" && (
         <>
-          <div className="alinhamento">
+          <div className="alinhamento inputTimerDiv">
             {" "}
-            <h1>
-              Hora :
-              <input
-                className="InputNumbertimer"
-                type="number"
-                value={horaInput}
-                min={0}
-                max={59}
-                onChange={(e) => SetHoraInput(Number(e.target.value))}
-              />
-            </h1>
-            <h1>
-              Min :
-              <input
-                className="InputNumbertimer"
-                type="number"
-                onChange={(e) => SetMinInput(Number(e.target.value))}
-                value={minInput}
-                min={0}
-                max={59}
-              />
-            </h1>
-            <h1>
-            Seg :
             <input
               className="InputNumbertimer"
               type="number"
-              value={segInput}
-              onChange={(e) => SetsegInput(Number(e.target.value))}
+              min={0}
+              max={72}
+              onChange={(e) => SetHoraInput(Number(e.target.value))}
+              placeholder="H"
             />
-           </h1>
+            <input
+              className="InputNumbertimer"
+              type="number"
+              onChange={(e) => SetMinInput(Number(e.target.value))}
+              placeholder="M"
+              min={0}
+              max={59}
+            />
+            <input
+              className="InputNumbertimer"
+              type="number"
+              min={0}
+              max={59}
+              onChange={(e) => SetsegInput(Number(e.target.value))}
+              placeholder="S"
+            />
           </div>
-          <button onClick={Inicio} id="start-btn">Iniciar</button>
+
+          <button
+            onClick={Inicio}
+            id="start-btn"
+            style={{
+              background:
+                (minInput > 0 && minInput < 59) ||
+                (segInput > 0 && segInput < 59) ||
+                (horaInput > 0 && horaInput < 72)
+                  ? "#00b34c"
+                  : "gray",
+            }}
+          >
+            Iniciar
+          </button>
         </>
       )}
       {estadoTela === "ativo" && (
@@ -117,15 +135,21 @@ function Timer() {
           <div className="alinhamento">
             {estadoBotao === "ativo" && (
               <>
-                <button  id="stop-btn" onClick={Pausar}>Pausar</button>
+                <button id="stop-btn" onClick={Pausar}>
+                  Pausar
+                </button>
               </>
             )}
             {estadoBotao === "stop" && (
               <>
-                <button id="start-btn" onClick={Continuar}>continuar</button>
+                <button id="start-btn" onClick={Continuar}>
+                  continuar
+                </button>
               </>
             )}
-            <button  id="reset-btn" onClick={Resetar}>Resetar</button>
+            <button id="reset-btn" onClick={Resetar}>
+              Resetar
+            </button>
           </div>
         </>
       )}
