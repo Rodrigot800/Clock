@@ -34,7 +34,19 @@
   border: none;
   padding: 2px;
 }
-.teste:hover {
+
+.btnHead {
+  text-align: center;
+  justify-content: center;
+  width: 100px;
+  height: 100%;
+  color: aliceblue;
+  border-radius: 5px;
+  background-color: transparent;
+  border: none;
+  padding: 2px;
+}
+.btnHead :hover {
   background-color: #240046;
   transition: 0.30s;
 }
@@ -72,6 +84,7 @@
   padding-bottom: 20px;
   
 }
+
 #stop-btn {
   border: unset;
   width: 100px;

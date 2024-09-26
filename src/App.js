@@ -39,7 +39,7 @@ import Timer from "./componets/ferramentas/timer";
 
 // Componente principal para gerenciar os três
 function App() {
-  const [componenteAtivo, setComponenteAtivo] = useState("timer");
+  const [componenteAtivo, setComponenteAtivo] = useState("alarme");
   const mostrarComponente = () => {
     if (componenteAtivo === "cronometro") return <Cronometro />;
     if (componenteAtivo === "alarme") return <Alarme />;
@@ -51,7 +51,7 @@ function App() {
       <div id="head">
       <div id="menu">
         <div className="alinhamento-menu">
-          <button className="teste" id="Cronometro"  onClick={() => setComponenteAtivo("cronometro")}>
+          <button className="btnHead " id="Cronometro"  onClick={() => setComponenteAtivo("cronometro")}>
             <img id="Cronometro"
               className="img-menu"
               src="https://toppng.com/uploads/preview/browser-history-clock-icon-vector-white-115629140725m3lqcdics.png"
@@ -59,14 +59,14 @@ function App() {
             <p id="Cronometro">Cronometro</p>
           </button>
 
-          <button  id="Alarme" className="teste" onClick={() => setComponenteAtivo("alarme")}>
+          <button  id="Alarme" className="btnHead " onClick={() => setComponenteAtivo("alarme")}>
             <img id="Alarme"
               className="img-menu"
               src="https://toppng.com/uploads/preview/browser-history-clock-icon-vector-white-115629140725m3lqcdics.png"
             />
             <p id="Alarme" >Alarme</p>
           </button>
-          <button id="Temporizador" className="teste" onClick={() => setComponenteAtivo("timer")}>
+          <button id="Temporizador" className="btnHead " onClick={() => setComponenteAtivo("timer")}>
             <img id="Temporizador"
               className="img-menu"
               src="https://toppng.com/uploads/preview/browser-history-clock-icon-vector-white-115629140725m3lqcdics.png"
