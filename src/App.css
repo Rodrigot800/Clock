@@ -24,15 +24,55 @@
   height: auto;
 }
 .teste {
-  text-align: center;
-  justify-content: center;
-  width: 100px;
-  height: 100%;
+ 
   color: aliceblue;
   border-radius: 5px;
   background-color: transparent;
   border: none;
   padding: 2px;
+}
+.box{
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+}
+.box-circle svg{
+  width: 200px;
+  height: 2000px;
+  position: relative;
+}
+circle{
+  width: 150px;
+  height: 150px;
+  fill : none;
+  stroke: #000003;
+  stroke-width: 10;
+  transform: translate( 15px,15px);
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+}
+circle:nth-child(1){
+  stroke-dashoffset: 0;
+  stroke: rgb(202, 200, 200);
+}
+circle:nth-child(2){
+  stroke: #00b34c;
+  transition: strokeDashoffset, 1000ms;
+}
+.number{
+  position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 .btnHead {
