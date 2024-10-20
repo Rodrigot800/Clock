@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Clock/static/css/main.bff2b963.css",
+    "main.css": "/Clock/static/css/main.fb190d8f.css",
     "main.js": "/Clock/static/js/main.6954d029.js",
     "static/js/453.b6d2b3c3.chunk.js": "/Clock/static/js/453.b6d2b3c3.chunk.js",
     "static/media/level-up-191997.mp3": "/Clock/static/media/level-up-191997.08acd6a4106841a511ad.mp3",
     "index.html": "/Clock/index.html",
-    "main.bff2b963.css.map": "/Clock/static/css/main.bff2b963.css.map",
+    "main.fb190d8f.css.map": "/Clock/static/css/main.fb190d8f.css.map",
     "main.6954d029.js.map": "/Clock/static/js/main.6954d029.js.map",
     "453.b6d2b3c3.chunk.js.map": "/Clock/static/js/453.b6d2b3c3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bff2b963.css",
+    "static/css/main.fb190d8f.css",
     "static/js/main.6954d029.js"
   ]
 }
